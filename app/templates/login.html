@@ -1,0 +1,18 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Search Filter</h1>
+
+    {% from "_formhelpers.html" import render_field %}
+    <form action="/submit" method="post" name="filter">
+    
+        <div>{{ render_field(form.hashtag) }}</div>
+        <div>{{ render_field(form.location) }}</div>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+{% endblock %}
+
+
+
