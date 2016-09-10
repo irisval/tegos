@@ -5,8 +5,23 @@
 
     <h1>{{ hasht }}</h1>
     <h1>{{ loc }}
+     <div id="map"></div>
+    <script>
+      var lat = 12.4;
+      var lng = -122.398720;
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat, lng},
+          scrollwheel: false,
+          zoom: 12
+        });
+      }
 
-    
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjiXezUxSQNmEZU3SeuE-dBQ2-gldiTNY&callback=initMap"
+    async defer></script>
+ 	
 {% endblock %}
 
 
