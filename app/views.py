@@ -1,6 +1,8 @@
 from flask import render_template, request
 from app import app
+from app import t
 from .forms import FilterForm
+
 
 
 @app.route('/')
@@ -18,10 +20,17 @@ def submit():
 def display():
   form = FilterForm()
   if request.form['hashtag'][0] == "#":
-    hasht = request.form['hashtag']
+    hasht = request.form['hashtag'][1:]
   else:
-    hasht = "#" + request.form['hashtag']
+    hasht = request.form['hashtag']
   loc = request.form['location']
+  print("hello")
+  search_results = t.search(q="%23"+str(hasht))
+  print(len(search_results))
+
+
+
+
 
   return render_template('map.html', form=form, hasht = hasht, loc = loc)
 
