@@ -5,8 +5,7 @@
 
     <h1>Search Filter</h1>
 
-    {% from "_formhelpers.html" import render_field %}
-    <form action="/submit" method="post" name="filter">
+    <form action="/display" method="post" name="filter">
     
         <div>{{ form.hashtag.label }}: {{ form.hashtag(class="css_class") }}</div>
         <div>{{ form.location.label }}: {{ form.location(class="css_class") }}</div>
