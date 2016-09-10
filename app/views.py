@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from app import app
 from app import t
 from twython import Twython
@@ -21,7 +21,9 @@ def submit():
 def display():
 
   form = FilterForm()
-  if request.form['hashtag'][0] == "#":
+  if len(request.form['hashtag']) == 0:
+    return redirect(url_for('submit'))
+  elif request.form['hashtag'][0] == "#":
     hasht = request.form['hashtag'][1:]
   else:
     hasht = request.form['hashtag']
@@ -37,9 +39,6 @@ def display():
 
   return render_template('map.html', form=form, hasht = hasht, search_results=str_id_list)
 
-@app.route('/failed')
-def failed():
-  return render_template('failed.html')
 
 
 
