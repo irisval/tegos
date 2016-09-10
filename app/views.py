@@ -37,6 +37,9 @@ def display():
 
   return render_template('map.html', form=form, hasht = hasht, search_results=str_id_list)
 
+@app.route('/failed')
+def failed():
+  return render_template('failed.html')
 
 
 
