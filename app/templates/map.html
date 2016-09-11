@@ -1,0 +1,45 @@
+<!-- extend base layout -->
+ <script>window.twttr = (function(d, s, id) {
+		  	var js, fjs = d.getElementsByTagName(s)[0],
+		    t = window.twttr || {};
+		  	if (d.getElementById(id)) return t;
+		  	js = d.createElement(s);
+		  	js.id = id;
+		  	js.src = "https://platform.twitter.com/widgets.js";
+		  	fjs.parentNode.insertBefore(js, fjs);
+		 
+		  	t._e = [];
+		  	t.ready = function(f) {
+		    t._e.push(f);
+	 	};
+ 
+  		return t;
+		}(document, "script", "twitter-wjs"));</script>
+
+
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ hasht }}
+	<h1>{{ lat }}</h1>
+    <h1>{{ lng }}</h1>
+    {# <div id="container"></div> #}
+
+  
+
+    {% for i in search_results %}
+    <script type="text/javascript">
+		twttr.widgets.createTweet(
+		  '{{ i }}',
+		  document.getElementById('container'),
+		  {
+		    theme: 'light'
+		  }
+		);
+	</script>
+    	
+    {% endfor %}
+
+    
+{% endblock %}
+

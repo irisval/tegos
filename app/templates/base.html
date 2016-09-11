@@ -5,7 +5,7 @@
     {% else %}
     <title>microblog</title>
     {% endif %}
-     <style>
+    <style>
       html, body {
         height: 100%;
         margin: 0;
@@ -15,8 +15,12 @@
         height: 100%;
       }
     </style>
-{#     <link href="{{ url_for('.static', filename='css/form.css') }}" rel="stylesheet" media="screen">
- #}  </head>
+    <link href="{{ url_for('.static', filename='css/form.css') }}" rel="stylesheet" media="screen">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjiXezUxSQNmEZU3SeuE-dBQ2-gldiTNY&v=3.exp&sensor=false&libraries=places"></script>
+
+ 
+  </head>
+
   <body>
      
     {% with messages = get_flashed_messages() %}

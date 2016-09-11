@@ -3,16 +3,55 @@
 
 {% block content %}
 
-    <h1>Search Filter</h1>
-
     <form action="/display" method="post" name="filter">
     
-        <div>{{ form.hashtag.label }}: {{ form.hashtag(class="css_class") }}</div>
-        <!-- <div>{{ form.location.label }}: {{ form.location(class="css_class") }}</div> -->
-         <!-- <div>{{ form.mapDisplay.description }} {{ form.mapDisplay(class="css_class") }}</div> -->
+        <div>
+        {{ form.hashtag.label }}: {{ form.hashtag(class="css_class") }}
+        <br>
+        <label for="locationTextField">Location</label>
+        <input id="locationTextField" type="text" size="50">
+        <input type="hidden" id="lat" name="lat" value="" />
+        <input type="hidden" id="lng" name="lng" value="" />
+
+        <script>
+            var place, lat, lng;
+            function init() {
+                var input = document.getElementById('locationTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+
+                google.maps.event.addListener(autocomplete, 'place_changed',
+                    function() {
+                        place = autocomplete.getPlace();
+                        lat = place.geometry.location.lat();
+                        lng = place.geometry.location.lng();
+                        
+                        document.getElementById('lat').value = lat;
+                        document.getElementById('lng').value = lng;
+                        console.log(lat)
+                        console.log(lng)
+                    } 
+                );
+            }
+  
+            google.maps.event.addDomListener(window, 'load', init);
+        </script>
+
+        </div>
+
+        
         <p><input type="submit" value="Submit"></p>
     </form>
 {% endblock %}
+
+
+<head>
+        
+    </head>
+    <body>
+        
+          
+        
+    </body>
 
 
 
