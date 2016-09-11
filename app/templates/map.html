@@ -20,14 +20,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+	<h1>Google Maps</h1>
 	<h1>{{ hasht }}
 	<h1>{{ lat }}</h1>
     <h1>{{ lng }}</h1>
-    {# <div id="container"></div> #}
+    <div id="map"></div>
+    <div id="container"></div>
 
   
 
-    {% for i in search_results %}
+    {# {% for i in search_results %}
     <script type="text/javascript">
 		twttr.widgets.createTweet(
 		  '{{ i }}',
@@ -36,10 +38,27 @@
 		    theme: 'light'
 		  }
 		);
-	</script>
-    	
-    {% endfor %}
+	</script>  	
+    {% endfor %} #}
+    
+    <script type="text/javascript">
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: '{{ lat }}', lng: '{{lng}}'},
+   			zoom: 18
+        });
+        map.setTilt(45);
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjiXezUxSQNmEZU3SeuE-dBQ2-gldiTNY&callback=initMap">
+    </script>
+
+
 
     
 {% endblock %}
+
+
 
