@@ -6,9 +6,8 @@
     <form action="/display" method="post" name="filter">
     
         <div>
-        {{ form.hashtag.label }}: {{ form.hashtag(class="css_class") }}
+         {{ form.hashtag(class="css_class", placeholder="Hashtag") }}
         <br>
-        <label for="locationTextField">Location</label>
         <input id="locationTextField" type="text" size="50">
         <input type="hidden" id="lat" name="lat" value="" />
         <input type="hidden" id="lng" name="lng" value="" />

@@ -5,12 +5,10 @@ from twython import Twython
 from .forms import FilterForm
 
 
-
 @app.route('/')
 @app.route('/index')
 def index():
-   return "placeholder"
-
+  return render_template("index.html")
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():

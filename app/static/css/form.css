@@ -1,0 +1,9 @@
+input{
+	font-family: 'Source Sans Pro', sans-serif;
+	width: 20%;
+	padding: 10px 20px;
+	margin: 10px 0;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #e7e7e7;
+}
