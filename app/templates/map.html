@@ -24,12 +24,13 @@
 	<h1>{{ hasht }}
 	<h1>{{ lat }}</h1>
     <h1>{{ lng }}</h1>
+
     <div id="map"></div>
     <div id="container"></div>
-
   
+    {% for i in search_results %}
 
-    {# {% for i in search_results %}
+
     <script type="text/javascript">
 		twttr.widgets.createTweet(
 		  '{{ i }}',
@@ -38,8 +39,9 @@
 		    theme: 'light'
 		  }
 		);
+
 	</script>  	
-    {% endfor %} #}
+    {% endfor %} 
     
     <script type="text/javascript">
       function initMap() {
@@ -54,9 +56,6 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjiXezUxSQNmEZU3SeuE-dBQ2-gldiTNY&callback=initMap">
     </script>
-
-
-
     
 {% endblock %}
 
