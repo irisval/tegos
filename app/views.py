@@ -27,8 +27,9 @@ def display():
     hasht = request.form['hashtag'][1:]
   else:
     hasht = request.form['hashtag']
-  # loc = request.form['location']
-  # display = request.form.map_display.data
+
+  lat2 = request.form['lat']
+  lng2 = request.form['lng']
 
 
   search_results = t.search(q="%23" + hasht, result_type='recent', count=50)
@@ -37,7 +38,7 @@ def display():
   for tweet in search_results["statuses"]:
     str_id_list.append(tweet["id_str"])
 
-  return render_template('map.html', form=form, hasht = hasht, search_results=str_id_list)
+  return render_template('map.html', form=form, hasht=hasht, lat=lat2, lng=lng2, search_results=str_id_list)
 
 
 
